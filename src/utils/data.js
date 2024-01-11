@@ -7,7 +7,6 @@ import rose from "../assets/rose.webp"
 import christy from "../assets/crhisty.jpg"
 import adel from "../assets/Adel JKT48.jpeg"
 import lia from "../assets/Lia.jpeg"
-import indira from "../assets/indira.jpg"
 export const data = [
     {"src" : azizi, match:false},
     {"src" : freya, match:false },
