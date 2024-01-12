@@ -4,7 +4,7 @@ import cover from "../assets/cover.jpeg";
 function Card({ item, onClick, fliped }) {
   return (
     <div
-      className={` realtive light cursor-pointer group: relative w-[90px] h-[140px]`}
+      className={` realtive md:light lightMobile cursor-pointer group: relative md:w-[90px] md:h-[140px] w-[50px] h-[70px]`}
     >
       <div>
         <img

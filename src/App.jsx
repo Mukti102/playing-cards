@@ -14,7 +14,7 @@ function App() {
   const [choiseTwo, setChoiseTwo] = useState(null);
   const audio = useRef(new Audio(mp3));
 
-  // mengacak kartu
+  // new game atau mengacak kartu
   const sufleCards = () => {
     const sufleCards = [...data, ...data]
       .sort(() => Math.random() - 0.5)
@@ -66,9 +66,13 @@ function App() {
 
   // audio putar
   useEffect(() => {
-    sufleCards();
-    audio.current.play();
-  }, []);
+    // sufleCards();
+    if (isRunning) {
+      audio.current.play();
+    } else {
+      audio.current.pause();
+    }
+  }, [isRunning]);
 
   // stopwatch start
   useEffect(() => {
@@ -85,6 +89,7 @@ function App() {
 
   // mulai permainan
   const startGame = () => {
+    sufleCards();
     setIsrunning(true);
   };
 
@@ -93,7 +98,9 @@ function App() {
   if (check) {
     console.log("kalah");
   } else {
-    alert("menang");
+    alert(
+      `Hebat😊 kamu bisa menyelesaikanya hanya dalam  waktu ${minute} menit`
+    );
     sufleCards();
   }
 
@@ -119,7 +126,7 @@ function App() {
 
   return (
     <div
-      className={`py-2 w-full h-full bg-[url(https://wallpapercave.com/wp/wp6967015.jpg)] bg-black bg-cover bg-bottom flex gap-3 flex-col justify-center items-center `}
+      className={`md:py-2  w-full md:h-full h-screen  bg-[url(https://wallpapercave.com/wp/wp6967015.jpg)] bg-black md:bg-cover md:bg-bottom  bg-center flex gap-3 flex-col items-center py-20 `}
     >
       <Header sufleCards={sufleCards} startGame={startGame} />
       <FormatStopwatch
